@@ -4,13 +4,13 @@ import { BiGlobe } from "react-icons/bi";
 
 import React from "react";
 import Icon from "@/components/icon";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
     <>
       <div className="flex justify-between px-8 py-5 absolute top-0 w-full  ">
-        {/* <img src="/Navlogo.png" alt="error" width={70} /> */}
-        <Icon />
+       <Link href="/"> <Icon /> </Link>
         <div className="flex gap-x-4 items-center font-semibold text-[14px]">
           <div>Vehicles</div>
           <div>Energy</div>

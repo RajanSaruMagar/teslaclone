@@ -1,4 +1,3 @@
-import CyberIcon from "@/components/cyber";
 import React from "react";
 
 type TCar = {
