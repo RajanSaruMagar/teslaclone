@@ -4,11 +4,6 @@
 
 
 
-@font-face {
-    font-family: "rajan";
-    src: url('/teslaclone/public/fonts/gothamssm_medium.otf') format('opentype');
-}
-
 body{
     font-family: "rajan";
 }

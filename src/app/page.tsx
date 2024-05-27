@@ -4,14 +4,22 @@ import React from "react";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import Footer from "./footer";
+import Navbar from "./navbar";
+interface HomeProps {
+  isActive?: string;
+}
 
-const Home = () => {
+const Home = ({ isActive }: HomeProps) => {
   const path = usePathname();
 
   return (
     <>
       <link rel="icon" href="/" />
-      <div className="bg-custom-image h-screen bg-cover bg-center  ">
+      <div
+        className={`${
+          isActive ? "blur-sm" : ""
+        } bg-custom-image h-screen bg-cover bg-center `}
+      >
         <div className=" w-1/2 flex mx-auto flex-col left-0 right-0  items-center justify-between  h-[70%] absolute top-[15%]">
           <div className="flex flex-col items-center ">
             <p className="font-semibold text-[40px]"> Model Y </p>
@@ -99,7 +107,7 @@ const Home = () => {
           </div>
         );
       })}
-      <Footer/>
+      <Footer />
     </>
   );
 };
