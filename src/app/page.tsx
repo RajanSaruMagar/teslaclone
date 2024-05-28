@@ -4,13 +4,12 @@ import React from "react";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import Footer from "./footer";
-import Navbar from "./navbar";
 interface HomeProps {
   isActive?: string;
 }
 
 const Home = ({ isActive }: HomeProps) => {
-  const path = usePathname();
+  // const path = usePathname();
 
   return (
     <>
