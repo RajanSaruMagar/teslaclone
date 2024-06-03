@@ -5,18 +5,28 @@ import { BiGlobe } from "react-icons/bi";
 
 import React, { act, useState } from "react";
 import Icon from "@/components/icon";
-import Home from "./page";
 import NavbarItemMap from "../data/navbarData";
+import Link from "next/link";
+import clsx from "clsx";
+import { usePathname } from "next/navigation";
 
 type TNavbarItem = "vehicle" | "energy" | "charging" | "discover" | "shop" | "";
 
 const Navbar = () => {
   const [activeHoverItem, setActiveHoverItem] = useState<TNavbarItem>("");
+  const path = usePathname();
 
   return (
     <>
-      <Home isActive={activeHoverItem} />
-      <div className="flex justify-between px-8 py-5 absolute top-0 w-full  ">
+      {/* <Home isActive={activeHoverItem} /> */}
+      <div
+        className={clsx(
+          "flex justify-between px-8 py-5 absolute top-0 w-full",
+          path === "/learn/model3" && activeHoverItem == ""
+            ? "text-white"
+            : "text-black"
+        )}
+      >
         <div
           onMouseLeave={() => setActiveHoverItem("")}
           className={`${
@@ -28,26 +38,45 @@ const Navbar = () => {
               NavbarItemMap[activeHoverItem as TNavbarItem].map(
                 (car, index) => {
                   return (
-                    <div
-                      key={index}
-                      className="w-[200px]   flex flex-col justify-between items-center mx-6 "
-                    >
-                      <div className="gap-x-10">
+                    <div key={index} className="w-[200px] flex flex-col ">
+                      <div>
                         <img src={car.image} />
                       </div>
-                      <p className="font-medium">{car.name} </p>
+
+                      <p className="text-center text-[17px] font-semibold">
+                        {car.name}
+                      </p>
+                      <p className="text-[#696b6e] text-[14px] py-2">
+                        {car.Title}
+                      </p>
+                      {car.categories?.map((data, index) => (
+                        <p
+                          key={index}
+                          className="text-[14px] py-1 font-semibold"
+                        >
+                          {data}
+                        </p>
+                      ))}
                       <div className="flex">
                         {index == 5 ? (
-                          <div className="text-[#5C5E62] text-[14px] underline px-2">
+                          <div className="text-[#5C5E62] text-[12px] underline pl-14">
                             Get Started
                           </div>
                         ) : (
                           <>
-                            <div className="text-[#5C5E62] text-[14px] underline px-2">
-                              {car.Learn}
-                            </div>
-                            <div className="text-[#5C5E62] text-[14px] underline px-2">
-                              {car.Order}
+                            <div className="flex w-full justify-center gap-3">
+                              {car.learnLink && (
+                                <Link
+                                  className="text-[#5C5E62] text-center text-[12px] underline"
+                                  href={car.learnLink}
+                                >
+                                  {car.Learn}
+                                </Link>
+                              )}
+
+                              <div className="text-[#5C5E62] text-center text-[12px] underline">
+                                {car.Order}
+                              </div>
                             </div>
                           </>
                         )}
@@ -130,7 +159,7 @@ const Navbar = () => {
           <Icon />
         </div>
 
-        <div className="flex gap-x-6   items-center font-semibold z-20 text-[14px] cursor-pointer">
+        <div className="flex gap-x-6 items-center font-semibold z-20 text-[14px] cursor-pointer">
           <div
             className="hover:bg-[#F2F2F2] px-3 py-1 rounded-md"
             onMouseOver={() => setActiveHoverItem("vehicle")}

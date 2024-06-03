@@ -7,3 +7,17 @@
 body{
     font-family: "rajan";
 }
+.slick-dots {
+    top: 700px;  
+    right: 280px;
+    color: rgb(100, 94, 94) !important;
+  }
+  
+  
+
+    .slick-dots li.slick-active button:before {
+    color:White !important;
+}
+
+
+
