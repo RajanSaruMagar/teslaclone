@@ -1,60 +1,81 @@
-import { IoIosArrowDown } from "react-icons/io";
-import { IoIosArrowUp } from "react-icons/io";
-import React from "react";
+"use client";
+
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import React, { useEffect, useRef, useState } from "react";
+import Model1 from "@/data/Model3Data.ts/first";
+import Model2 from "@/data/Model3Data.ts/second";
 
 const Model3 = () => {
+  const [content, setContent] = useState(Model1);
+
+  const divRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const div = divRef.current;
+
+    const handleWheel = (event: WheelEvent) => {
+      const isScrollingUp = event.deltaY < 0;
+      const isScrollingDown = event.deltaY > 0;
+
+      if (isScrollingUp) {
+        setContent(Model1);
+      } else if (isScrollingDown) {
+        setContent(Model2);
+      }
+    };
+
+    if (div) {
+      div.addEventListener("wheel", handleWheel);
+    }
+
+    return () => {
+      if (div) {
+        div.removeEventListener("wheel", handleWheel);
+      }
+    };
+  }, []);
+
+  console.log("ref for the dev", divRef);
+
   return (
     <>
-      <div
-        className="h-screen w-full bg-cover bg-center z-0"
-        style={{
-          backgroundImage: "url('/Model3/Model-3-white.png')",
-        }}
-      >
-        <div className="text-white flex flex-col justify-center items-center pr-[820px] pt-24 h-screen font-semibold gap-8">
-          <div className="w-[285px]">
-            <p className="text-[56px]">Model 3</p>
-            <p className="text-[20px]"> Standard and Long Range</p>
-          </div>
-          <div className="flex flex-col gap-2">
-            <button className="h-10 w-[285px] text-[14px] rounded-sm px-6 py-1 bg-[#3457B1]">
-              Order Now
-            </button>
-            <button className="h-10 w-[285px] text-[14px] rounded-sm px-6 py-1 bg-[#222222]">
-              Learn More
-            </button>
-          </div>
-          <div className="flex items-center gap-2 w-[285px]">
-            <IoIosArrowDown />
-            <p className="text-[14px] font-bold">Switch to Perfromance</p>
-          </div>
-        </div>
-      </div>
-      {/* this is the break poiint of the page for the transition effeect */}
-      <div
-        className="h-screen w-full bg-cover bg-center z-10"
-        style={{
-          backgroundImage: "url('/Model3/Model-3-red.png')",
-        }}
-      >
-        <div className="text-white flex flex-col justify-center items-center pr-[820px] pt-24 h-screen font-semibold gap-8">
-          <div className="w-[285px]">
-            <p className="text-[56px]">Model 3</p>
-            <p className="text-[20px]"> Performance</p>
-          </div>
-          <div className="flex flex-col gap-2">
-            <button className="h-10 w-[285px] text-[14px] rounded-sm px-6 py-1 bg-[#3457B1]">
-              Order Now
-            </button>
-            <button className="h-10 w-[285px] text-[14px] rounded-sm px-6 py-1 bg-[#222222]">
-              Learn More
-            </button>
-          </div>
-          <div className="flex items-center gap-2 w-[285px]">
-            <IoIosArrowUp />
-            <p className="text-[14px] font-bold">Switch to Model 3</p>
-          </div>
-        </div>
+      <div className="relative">
+        {content.map((data, index) => {
+          return (
+            <div
+              className="h-screen w-full bg-cover bg-center absolute "
+              key={index}
+              style={{
+                backgroundImage: `url(${data.image})`,
+              }}
+              ref={divRef}
+            >
+              <div className="text-white flex flex-col justify-center items-center pr-[820px] pt-24 h-screen font-semibold gap-8">
+                <div className="w-[285px]">
+                  <p className="text-[56px]">{data.name}</p>
+                  <p className="text-[20px]"> {data.description}</p>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <button className="h-10 w-[285px] text-[14px] rounded-sm px-6 py-1 bg-[#3457B1]">
+                    {data.order}
+                  </button>
+                  <button className="h-10 w-[285px] text-[14px] rounded-sm px-6 py-1 bg-[#222222]">
+                    {data.Learn}
+                  </button>
+                </div>
+                <div className="flex items-center gap-2 w-[285px]">
+                  {data.description === "Performance" ? (
+                    <IoIosArrowUp />
+                  ) : (
+                    <IoIosArrowDown />
+                  )}
+
+                  <p className="text-[14px] font-bold">{data.switch}</p>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </>
   );
