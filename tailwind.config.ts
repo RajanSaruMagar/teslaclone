@@ -11,6 +11,10 @@ const config: Config = {
       backgroundImage: {
         'custom-image': "url('/modely.png')",
       },
+      colors: {
+        textColor: "#393C41",
+        loader: "#5C5E62",
+      },
     },
   },
   plugins: [],

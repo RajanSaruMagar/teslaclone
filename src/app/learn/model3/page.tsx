@@ -35,7 +35,6 @@ const Model3 = () => {
     };
   }, []);
 
-  console.log("ref for the dev", divRef);
 
   return (
     <>
