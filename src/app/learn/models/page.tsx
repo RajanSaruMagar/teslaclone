@@ -7,6 +7,12 @@ import BlueCar from "@/components/Model-s/3rdcomponent";
 import Range from "@/components/Model-s/5thcomponent";
 import RedCar from "@/components/Model-s/4thcomponent";
 import Freedom from "@/components/Model-s/6thcomponent";
+import DemoDrive from "@/components/Model-s/7thcomponent";
+import Safety from "@/components/Model-s/8thcomponent";
+import { AutoPilot } from "@/components/Model-s/9thcomponent";
+import Features from "@/components/Model-s/10thcomponent";
+import Specs from "@/components/Model-s/11thcomponent";
+import Last from "@/components/Model-s/12thcomponents";
 
 const ModelS = () => {
   return (
@@ -35,6 +41,12 @@ const ModelS = () => {
       <RedCar />
       <Range />
       <Freedom />
+      <DemoDrive/>
+      <Safety/>
+      <AutoPilot/>
+      <Features/>
+      <Specs/>
+      <Last/>
     </>
   );
 };

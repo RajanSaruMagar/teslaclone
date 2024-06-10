@@ -8,7 +8,7 @@ const RedCar = () => {
           style={{ backgroundImage: "url('/Models/red-s.png')" }}
           className="h-[80%]  bg-cover bg-center"
         ></div>
-        <div className="text-white flex  mx-[350px] px-[48px]  pt-14  ">
+        <div className="text-white flex  mx-[350px] px-[48px]  pt-14 gap-20 ">
           <div>
             <p className="text-[17px]">Exterior</p>
             <p className="text-[28px] font-semibold">Designed for Efficiency</p>
@@ -23,14 +23,13 @@ const RedCar = () => {
           </div>
           <p className="text-[14px] text-[#C7C7C7] font-medium">
             With a drag coefficient of just .208 Cd, the lowest on the planet,
-            Model S is built for <br></br> speed, endurance and range. Improved
-            aerodynamics and a wider chassis offer more<br></br> responsive
-            performance so you can take corners quicker and with more
+            Model S is built for speed, endurance <br></br> and range. Improved
+            aerodynamics and a wider chassis offer more responsive performance so you can <br></br>take corners quicker and with more
             confidence.
           </p>
         </div>
       </div>
-      <div className="h-10 bg-black"></div>
+      <div className="h-20 bg-black"></div>
       <div className="bg-black text-white">
         <div className="flex items-center justify-center mx-[240px] px-[48px] gap-40 ">
           <div>

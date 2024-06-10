@@ -3,7 +3,7 @@ import React from "react";
 const Range = () => {
   return (
     <>
-      <div className="h-10 bg-black"></div>
+      <div className="h-20 bg-black"></div>
       <div className="h-screen w-full flex">
         <div className="h-full w-[80%] relative">
           <video src="/Models/Range.mp4" autoPlay muted loop></video>

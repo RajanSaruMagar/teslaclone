@@ -30,6 +30,9 @@ const BlackInterior = () => {
             </p>
           </div>
           <video
+            autoPlay
+            muted
+            loop
             src="/Models/immersive-sound.webm"
             className="h-[307.13px] w-[546px]"
           ></video>

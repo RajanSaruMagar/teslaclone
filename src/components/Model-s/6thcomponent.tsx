@@ -8,19 +8,39 @@ type TImage = {
 };
 
 const Freedom: React.FC = () => {
-  const [changeInImage, setChangeInImage] = useState<string>("/Models/freedom.png");
+  const [changeInImage, setChangeInImage] = useState<string>(
+    "/Models/freedom.png"
+  );
 
   const images: TImage[] = [
-    { src: "/Models/freedom.png", title: "San Francisco to Los Angeles", distance: "383 miles" },
-    { src: "/Models/berkely.png", title: "Berkely to Lake Tahoe", distance: "178 miles" },
-    { src: "/Models/manhattan.png", title: "Manhattan to Boston", distance: "211 miles" },
-    { src: "/Models/fort.png", title: "Fort Lauderdale to Orlando", distance: "195 miles" },
+    {
+      src: "/Models/freedom.png",
+      title: "San Francisco to Los Angeles",
+      distance: "383 miles",
+    },
+    {
+      src: "/Models/berkely.png",
+      title: "Berkely to Lake Tahoe",
+      distance: "178 miles",
+    },
+    {
+      src: "/Models/manhattan.png",
+      title: "Manhattan to Boston",
+      distance: "211 miles",
+    },
+    {
+      src: "/Models/fort.png",
+      title: "Fort Lauderdale to Orlando",
+      distance: "195 miles",
+    },
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setChangeInImage((prevImage) => {
-        const currentIndex = images.findIndex(image => image.src === prevImage);
+        const currentIndex = images.findIndex(
+          (image) => image.src === prevImage
+        );
         const nextIndex = (currentIndex + 1) % images.length;
         return images[nextIndex].src;
       });
@@ -47,13 +67,17 @@ const Freedom: React.FC = () => {
               className="w-[1392px] h-[756px] mx-[240px] pt-[56px] px-[48px]"
             />
           </div>
+        </div>
+      </div>
           <div className="flex justify-center gap-44 pt-10 pb-20 w-full">
             {images.map((image) => (
               <div key={image.src} onClick={() => setChangeInImage(image.src)}>
                 <hr
                   className={clsx(
-                    "h-[6px]",
-                    changeInImage === image.src ? "bg-black" : "bg-loader h-[2px]"
+                    "h-[2px]",
+                    changeInImage === image.src
+                      ? "h-[6px] bg-black"
+                      : "bg-loader h-[2px]"
                   )}
                 />
                 <p className="text-[17px] font-medium">{image.title}</p>
@@ -61,8 +85,12 @@ const Freedom: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
+      <div className="flex justify-center w-full ">
+        <button className="border-[3px] border-black rounded-[3px] py-1 px-16 text-[14px] font-semibold text-textColor hover:bg-black hover:text-white">
+          Learn More
+        </button>
       </div>
+  
     </>
   );
 };

@@ -2,7 +2,6 @@
 import { FaRegCircleQuestion } from "react-icons/fa6";
 import { FaRegUserCircle } from "react-icons/fa";
 import { BiGlobe } from "react-icons/bi";
-
 import React, { act, useState } from "react";
 import Icon from "@/components/icon";
 import NavbarItemMap from "../data/navbarData";
@@ -156,7 +155,7 @@ const Navbar = () => {
         </div>
 
         <div className="z-20">
-          <Icon />
+         <Link href="/"> <Icon /></Link>
         </div>
 
         <div className="flex gap-x-6 items-center font-semibold z-20 text-[14px] cursor-pointer">
