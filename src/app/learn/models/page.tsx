@@ -1,18 +1,18 @@
 "use client";
 import VideoCarousel from "@/components/carousel";
 import React, { useState } from "react";
-import Component from "@/components/Model-s/1stcomponent";
-import BlackInterior from "@/components/Model-s/2ndcomponent";
-import BlueCar from "@/components/Model-s/3rdcomponent";
-import Range from "@/components/Model-s/5thcomponent";
-import RedCar from "@/components/Model-s/4thcomponent";
-import Freedom from "@/components/Model-s/6thcomponent";
-import DemoDrive from "@/components/Model-s/7thcomponent";
-import Safety from "@/components/Model-s/8thcomponent";
-import { AutoPilot } from "@/components/Model-s/9thcomponent";
-import Features from "@/components/Model-s/10thcomponent";
-import Specs from "@/components/Model-s/11thcomponent";
-import Last from "@/components/Model-s/12thcomponents";
+import Component from "@/components/Model-s/Component";
+import BlackInterior from "@/components/Model-s/BlackInterior";
+import BlueCar from "@/components/Model-s/BlueCar";
+import Range from "@/components/Model-s/Range";
+import RedCar from "@/components/Model-s/RedCar";
+import Freedom from "@/components/Model-s/Freedom";
+import DemoDrive from "@/components/Model-s/DemoDrive";
+import Safety from "@/components/Model-s/Safety";
+import { AutoPilot } from "@/components/Model-s/AutoPilot";
+import Features from "@/components/Model-s/Features";
+import Specs from "@/components/Model-s/Specs";
+import Last from "@/components/Model-s/Last";
 
 const ModelS = () => {
   return (
